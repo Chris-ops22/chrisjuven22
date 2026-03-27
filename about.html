@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Us - Campus Connect</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+  background: linear-gradient(90deg, #1e3a5f, #2563eb);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+nav .logo img {
+  height: 50px;
+  margin-right: 15px;
+}
+nav .logo span {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+nav .nav-links a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav .nav-links a:hover {
+  color: #ffd700;
+}
+
+/* FLOATING SHAPES */
+.floating-shape {
+  position: absolute;
+  opacity: 0.12;
+  animation: float 12s ease-in-out infinite alternate;
+}
+.floating-shape.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #1e90ff;
+  top: 10%;
+  left: 15%;
+}
+.floating-shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #2563eb;
+  top: 30%;
+  right: 10%;
+}
+.floating-shape.square {
+  width: 40px;
+  height: 40px;
+  background: #187bcd;
+  top: 60%;
+  left: 25%;
+}
+.floating-shape.star {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #1e3a5f;
+  transform: rotate(35deg);
+  top: 50%;
+  right: 40%;
+}
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* SECTION TEXT */
+.section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+.section h1 {
+  color: #1e3a5f;
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+.section h2 {
+  color: #1e3a5f;
+  margin-bottom: 30px;
+}
+.section p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* HIGHLIGHTS CARDS */
+.card-container { 
+  display: flex; 
+  justify-content: center; 
+  gap: 30px; 
+  flex-wrap: wrap; 
+}
+.card {
+  background: white;
+  padding: 20px;
+  width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.card h3 {
+  margin-bottom: 10px;
+}
+.card p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* GET INVOLVED SECTION (CTA) */
+.get-involved {
+  padding: 60px 50px;
+  background: linear-gradient(135deg, #f0f7ff, #e0f2ff);
+  border-radius: 12px;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.get-involved h2 {
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #1e3a5f;
+}
+.get-involved .cta-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.cta-card {
+  background: white;
+  width: 280px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+.cta-card img {
+  width: 100%;
+  height: auto; /* full image visible */
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.cta-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #1e90ff;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cta-card button:hover {
+  background: #187bcd;
+}
+
+/* TESTIMONIALS */
+.testimonial-card {
+  display: inline-block;
+  margin: 15px;
+  text-align: center;
+  max-width: 300px;
+}
+.testimonial-card p {
+  font-style: italic;
+  color: #333;
+}
+.testimonial-card h4 {
+  margin-top: 10px;
+  color: #1e3a5f;
+}
+
+/* FOOTER */
+footer {
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer-social {
+  margin-top: 10px;
+}
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-column a {
+  display: block; /* makes each link on its own line */
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}
+.footer {
+  background: #1e3a5f;  /* dark blue footer */
+  color: white;          /* main text color */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  text-align: left;      /* aligns columns nicely */
+}
+
+.footer-column h3 {
+  color: white;          /* footer headings */
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  color: #a3cfff;        /* link color on dark background */
+  text-decoration: none;
+  display: block;        /* each link on a new line */
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;        /* hover color */
+}
+/* Center the social icons */
+.footer-social {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  gap: 15px;               /* spacing between icons */
+  margin-top: 30px;        /* spacing from columns */
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1); /* small zoom effect on hover */
+}
+
+/* Center the copyright text */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  color: #cbd5e1;   /* light gray for contrast */
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/656017785_26754887617428436_6919298552718149506_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeERBFuANXbqIb5pr2RJ7ZQTBiOT4qjHiioGI5PiqMeKKlLDNSObmhYLcQnAWAVxDnOvbHHB8e453EjgokTn0tXF&_nc_ohc=GxsSuDEbQOYQ7kNvwFIYOy5&_nc_oc=AdrV7WdYmguhejowrBFIgtOsZuI1LbWzjU_eRAwJbLshDis5lF0MaypyPla2xhUy_vw&_nc_zt=23&_nc_ht=scontent.fmnl25-1.fna&_nc_ss=7a30f&oh=03_Q7cD4wHsoqDDGRk4IhwlwZcCT79at3T1gXqNK7Jg0vFk9q6HiQ&oe=69E46595" alt="Campus Connect Logo">
+    <span>Campus Connect</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- FLOATING SHAPES -->
+<div class="floating-shape circle"></div>
+<div class="floating-shape triangle"></div>
+<div class="floating-shape square"></div>
+<div class="floating-shape star"></div>
+
+<!-- ABOUT US SECTION -->
+<div class="section">
+  <h1>About Us</h1>
+  <p>
+    Campus Connect Academy is a vibrant community where learning meets creativity. 
+    We nurture curiosity, leadership, and innovation, providing students with opportunities 
+    to excel in academics, arts, and extracurricular activities. Our goal is to inspire students 
+    to grow into compassionate and capable leaders of tomorrow.
+  </p>
+
+  <h2>Mission</h2>
+  <p>
+    To empower students to discover their strengths, think critically, and engage with their community 
+    in meaningful ways, preparing them for success in a rapidly evolving world.
+  </p>
+
+  <h2>Vision</h2>
+  <p>
+    To develop graduates who are not only academically excellent but also socially responsible 
+    and innovative, ready to make a positive impact in their communities and beyond.
+  </p>
+</div>
+
+<!-- HIGHLIGHTS SECTION -->
+<div class="section">
+  <h2>Our Highlights</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>50+ Activities</h3>
+      <p>Engage in diverse activities and join communities of your interest.</p>
+    </div>
+    <div class="card">
+      <h3>Annual Events</h3>
+      <p>From Family Day to sports tournaments, there’s always something exciting!</p>
+    </div>
+    <div class="card">
+      <h3>500+ Students</h3>
+      <p>Empowering young leaders to grow academically and socially.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section testimonials">
+  <h2>💬 What Members Say</h2>
+  <div class="testimonial-card">
+    <p>"Campus Connect keeps me updated on school events, and it's so easy to use!"</p>
+    <h4>- Franclin Paso.</h4>
+  </div>
+  <div class="testimonial-card">
+    <p>"I love exploring the galleries and seeing upcoming activities. A truly helpful platform!"</p>
+    <h4>- Carl Tabar. </h4>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+    <!-- HEADINGS -->
+    <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Sports Registration and Schedules</h3>
+      <a href="basketball.html">Basketball</a>
+      <a href="volleyball.html">Volleyball</a>
+      <a href="badminton.html">Badminton</a>
+      <a href="calendar.html">Event calendar</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>About</h3>
+      <a href="about.html">Our School</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Privacy Policy</a>
+      <a href="contact.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="footer-social">
+    <!-- Facebook link -->
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30">
+    </a>
+    <!-- Google or Twitter (if needed) -->
+    <a href="#" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30">
+    </a>
+    <!-- Instagram colored icon -->
+    <a href="https://www.instagram.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30">
+    </a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+   Copyright © 2026 Campus Connect • All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>

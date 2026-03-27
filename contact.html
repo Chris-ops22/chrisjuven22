@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact - Campus Connect</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+/* KEEP YOUR ORIGINAL NAVBAR STYLE */
+nav {
+  background: linear-gradient(90deg, #1e3a5f, #2563eb);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+nav .logo img {
+  height: 50px;
+  margin-right: 15px;
+}
+nav .logo span {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover;
+  color: white;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+/* TOP BOXES */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+}
+
+/* CONTACT CARD */
+.contact-card {
+  background: linear-gradient(135deg, #60a5fa, #1e3a5f);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* FORM FIX */
+.form-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover {
+  background: #1e40af;
+}
+
+/* SUCCESS MESSAGE */
+.success-message {
+  display: none;
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* POLICIES SIDE BY SIDE */
+.policies-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.policy-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer-social {
+  margin-top: 10px;
+}
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-column a {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}
+.footer {
+  background: #1e3a5f;
+  color: white;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.footer-column h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  color: #a3cfff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="https://scontent.fceb2-1.fna.fbcdn.net/v/t1.15752-9/656017785_26754887617428436_6919298552718149506_n.png">
+    <span>Campus Connect</span>
+  </div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero"> 
+<h1>Get in Touch</h1> 
+<p>Campus Connect is your portal for all school events. Send us a message or check our policies.</p> 
+</div>
+
+<!-- TOP -->
+<div class="container">
+
+  <div class="contact-card">
+    <h2>Contact Info</h2>
+    <p>campusconnect@email.com<br>0939-284-8390</p>
+    <p>Cebu, Philippines</p>
+  </div>
+
+  <div class="form-box">
+    <h2>Send a Message</h2>
+
+    <!-- UPDATED FORM -->
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="success-message" id="successMsg">
+      ✅ Message sent successfully!
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM -->
+<div class="policies-container">
+
+  <div class="policy-box">
+    <h3>Privacy Policy</h3>
+    <p>Your privacy is important to us. Campus Connect collects only necessary information for event registration and communications. Your data is never shared with third parties without consent.</p>
+    <p>We use cookies to enhance user experience and ensure the website runs smoothly.</p>
+  </div>
+
+  <div class="policy-box">
+    <h3>Terms of Service</h3>
+    <p>By using Campus Connect, you agree to abide by all school policies and event regulations. Users are responsible for providing accurate information when registering for events or surveys.</p>
+    <p>Campus Connect reserves the right to update the website, services, and policies at any time without prior notice.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+    <!-- HEADINGS -->
+    <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Sports Registration and Schedules</h3>
+      <a href="basketball.html">Basketball</a>
+      <a href="volleyball.html">Volleyball</a>
+      <a href="badminton.html">Badminton</a>
+      <a href="calendar.html">Event calendar</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>About</h3>
+      <a href="about.html">Our School</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Privacy Policy</a>
+      <a href="contact.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="footer-social">
+    <!-- Facebook link -->
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30">
+    </a>
+    <!-- Google or Twitter (if needed) -->
+    <a href="#" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30">
+    </a>
+    <!-- Instagram colored icon -->
+    <a href="https://www.instagram.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30">
+    </a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+   Copyright © 2026 Campus Connect • All Rights Reserved
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const msg = document.getElementById("successMsg");
+  msg.style.display = "block";
+
+  form.reset();
+
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 3000);
+});
+</script>
+
+</body>
+</html>

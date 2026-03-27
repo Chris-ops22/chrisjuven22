@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Campus Connect - Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+/* NAVBAR */
+nav {
+  background: linear-gradient(90deg, #1e3a5f, #2563eb);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav .logo { display: flex; align-items: center; }
+nav .logo img { height: 50px; margin-right: 15px; }
+nav .nav-links a { color: white; margin-left: 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav .nav-links a:hover { color: #ffd700; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/652747937_2437998623288358_8085653274435425600_n.png?stp=dst-png_s2048x2048&_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGRoNHsXcIvJO6gL0iNOUCPKIxbRBc9yy0ojFtEFz3LLQ99eXHlNTlDjRfXYHUIGhb_VMJkQ5baRuSpJON2YMEa&_nc_ohc=dEJBchacr-cQ7kNvwG6cTpt&_nc_oc=Adozneji1XAM-da3DboEBQYtza6Rkmj-I2YS7kwsd7yZsCc3bMQsrD9FZwNAvAiRgbg&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&_nc_ss=7a30f&oh=03_Q7cD4wH6jHSo2cxewE7vrP3_9S4GVLV6JpLEsS_2u60D8TEAtg&oe=69E44F23') center/cover no-repeat;
+  color: black;
+  text-align: left;
+  padding: 120px 50px;
+}
+
+.hero h1 { font-size: 50px; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); }
+.hero p { font-size: 20px; margin: 10px 0 20px 0; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
+.hero button { background-color: #1e90ff; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: 0.3s; }
+.hero button:hover { background-color: #187bcd; transform: translateY(-3px); }
+
+/* SECTIONS */
+.section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+.section h2 { text-align: center; color: #1e3a5f; margin-bottom: 40px; }
+
+/* CARD CONTAINERS */
+.card-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+
+/* STANDARD CARDS */
+.card {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1s ease forwards;
+}
+.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; margin-bottom: 10px; }
+.card button { background-color: #1e90ff; color: white; padding: 10px 18px; border: none; border-radius: 8px; font-weight: bold; margin-top: 10px; cursor: pointer; transition: 0.3s; }
+.card button:hover { background-color: #187bcd; transform: translateY(-2px); }
+@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0);} }
+
+/* PAGES SECTION */
+.pages-section {
+  position: relative;
+  background: linear-gradient(135deg, #e0f2ff, #ffffff);
+  padding: 60px 50px;
+  border-radius: 12px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  width: 100%;
+  max-width: none;
+}
+
+/* Floating shapes */
+.floating-shape { position: absolute; opacity: 0.12; animation: float 10s ease-in-out infinite alternate; }
+.floating-shape.circle { width:50px; height:50px; border-radius:50%; background:#1e90ff; top:10%; left:15%; animation-duration:12s;}
+.floating-shape.triangle { width:0; height:0; border-left:25px solid transparent; border-right:25px solid transparent; border-bottom:50px solid #2563eb; top:30%; right:10%; animation-duration:15s;}
+.floating-shape.square { width:40px; height:40px; background:#187bcd; top:60%; left:25%; animation-duration:10s;}
+.floating-shape.star { width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:30px solid #1e3a5f; transform: rotate(35deg); top:50%; right:40%; animation-duration:18s;}
+@keyframes float { 0%{transform:translateY(0px) rotate(0deg);} 50%{transform:translateY(-20px) rotate(15deg);} 100%{transform:translateY(0px) rotate(0deg);} }
+
+/* QUICK HIGHLIGHTS */
+.quick-highlights { background: royalblue; padding: 60px 50px; border-radius: 12px; color: black; width:100%; max-width:none; }
+.quick-highlights h2 { color: black; }
+.quick-highlights .card { background-color: rgba(255,255,255,0.95); animation: floatCard 2s ease-in-out infinite alternate; }
+@keyframes floatCard { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+/* SPORTS SECTION */
+.sports-section { background: linear-gradient(135deg, #ffb6c1, #ff69b4); padding: 80px 50px; border-radius:12px; margin-bottom:50px; display:flex; flex-direction:column; align-items:center; }
+.sports-section h2 { text-align:center; color:#1e3a5f; margin-bottom:40px; font-weight:bold; width:100%; text-transform:uppercase; }
+.sports-section .card-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; width:100%; max-width:1200px; }
+.sports-card { background:white; padding:20px; width:300px; border-radius:20px; box-shadow:0 8px 18px rgba(0,0,0,0.25); text-align:center; animation: floatCard 2s ease-in-out infinite alternate; }
+.sports-card img { width:100%; height:180px; object-fit:cover; border-radius:15px; margin-bottom:10px; }
+.sports-card button { background-color:#ff7f50; color:white; padding:10px 18px; border:none; border-radius:8px; font-weight:bold; margin-top:10px; cursor:pointer; transition:0.3s; }
+.sports-card button:hover { background-color:#ff6347; transform:translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer-social {
+  margin-top: 10px;
+}
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-column a {
+  display: block; /* makes each link on its own line */
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}
+.footer {
+  background: #1e3a5f;  /* dark blue footer */
+  color: white;          /* main text color */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  text-align: left;      /* aligns columns nicely */
+}
+
+.footer-column h3 {
+  color: white;          /* footer headings */
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  color: #a3cfff;        /* link color on dark background */
+  text-decoration: none;
+  display: block;        /* each link on a new line */
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;        /* hover color */
+}
+/* Center the social icons */
+.footer-social {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  gap: 15px;               /* spacing between icons */
+  margin-top: 30px;        /* spacing from columns */
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1); /* small zoom effect on hover */
+}
+
+/* Center the copyright text */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  color: #cbd5e1;   /* light gray for contrast */
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/656017785_26754887617428436_6919298552718149506_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeERBFuANXbqIb5pr2RJ7ZQTBiOT4qjHiioGI5PiqMeKKlLDNSObmhYLcQnAWAVxDnOvbHHB8e453EjgokTn0tXF&_nc_ohc=GxsSuDEbQOYQ7kNvwFIYOy5&_nc_oc=AdrV7WdYmguhejowrBFIgtOsZuI1LbWzjU_eRAwJbLshDis5lF0MaypyPla2xhUy_vw&_nc_zt=23&_nc_ht=scontent.fmnl25-1.fna&_nc_ss=7a30f&oh=03_Q7cD4wHsoqDDGRk4IhwlwZcCT79at3T1gXqNK7Jg0vFk9q6HiQ&oe=69E46595" alt="Campus Connect Logo">
+    <span style="color:white; font-weight:bold; font-size:20px;">Campus Connect</span>
+  </div>
+  <div class="nav-links">
+    <a href="login.html">Log In</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Welcome to Campus Connect</h1>
+  <p>Your one-stop portal for school events, clubs, and updates</p>
+  <button onclick="window.location.href='about.html'">Explore Now</button>
+</div>
+
+<!-- Pages Section -->
+<div class="section pages-section">
+  <h2>Explore Our Campus</h2>
+  <div class="floating-shape circle"></div>
+  <div class="floating-shape triangle"></div>
+  <div class="floating-shape square"></div>
+  <div class="floating-shape star"></div>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>About</h3>
+      <p>Learn more about our school and Campus Connect.</p>
+      <button onclick="window.location.href='about.html'">Go to About</button>
+    </div>
+    <div class="card">
+      <h3>Gallery</h3>
+      <p>See photos and highlights from school events.</p>
+      <button onclick="window.location.href='gallery.html'">Go to Gallery</button>
+    </div>
+    <div class="card">
+      <h3>Event Calendar</h3>
+      <p>View upcoming school events and important dates.</p>
+      <button onclick="window.location.href='activity.html'">Go to Activity</button>
+    </div>
+    <div class="card">
+      <h3>Contact</h3>
+      <p>Get in touch with the school for questions and support.</p>
+      <button onclick="window.location.href='contact.html'">Go to Contact</button>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Highlights -->
+<div class="section quick-highlights">
+  <h2>Quick Highlights/Featured Sections</h2>
+  <div class="card-container">
+    <div class="card">
+      <img src="https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/651691578_1257938679138927_7807369705385299613_n.png?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHy-hXzGX3p4myhYnH0UIviIMiE3AZsYcggyITcBmxhyKEB3NoE_Zx5uDb3DzC-P6voMeEpMGuEKaLeNMhUFyHZ&_nc_ohc=EEvGgLhkPncQ7kNvwFVb8XH&_nc_oc=AdpMYdwoBhmSBqSPXUFh7ADfiZwTUYFQuZFPm-hq1Gie9Xu3cdfc2TMyOhzNP2qOOoQ&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&_nc_ss=7a30f&oh=03_Q7cD4wGzlz2Psrit6pIA7mkjktr1i9ucdSJvGm7noOAjXQSbFw&oe=69E44F13">
+      <h3>Family Day 2026</h3>
+      <p>The SWU PHINMA SHS Department kicked off its Zumba session in Family Day 2026, led by Mr. Kint Villarta, Mr. Jifford Belogolo, and Mr. Richard Casicas.</p>
+    </div>
+    <div class="card">
+      <img src="https://scontent.fmnl25-8.fna.fbcdn.net/v/t1.15752-9/649701694_3246196312227587_310855835306087952_n.png?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEYlItWfZe27hgUCdFqTxMO8Q7nbf8JTVbxDudt_wlNVr1pNKS6wbqekD3rDRxwe2xcN_rPpz9IYm1Dpve65CpM&_nc_ohc=rXYQgJlNISkQ7kNvwFs0dH5&_nc_oc=AdpCERdeA_LlOxzfskclf5DRinpG36FTwd0UCvFvbusWR4HBOqzO0GAt8o0PJUHou_U&_nc_zt=23&_nc_ht=scontent.fmnl25-8.fna&_nc_ss=7a30f&oh=03_Q7cD4wGa3mazMdQfiZE4-jhTHGiYB0nGscyGzKHW6dVwt7xlhw&oe=69E45C29">
+      <h3>SIGLAKAS 2026</h3>
+      <p>The Senior High School Department bested the College of Dentistry, 60-45, during the Siglakas+ 2025 Men’s Basketball Elimination Round.</p>
+    </div>
+    <div class="card">
+      <img src="https://scontent.fmnl25-3.fna.fbcdn.net/v/t39.30808-6/644134671_1531806325614435_5136804745635624773_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFpqNEfbXyLpqEQxdVRIew0ilAB82g1SY-KUAHzaDVJj16cJW00S9Rx41d0H3MP2uRbT_qSiN4YNWHNG5nXd8w9&_nc_ohc=DHlWoJTdvkUQ7kNvwHx4MeV&_nc_oc=AdqiKa-RJx4ax-AcidEb2ElUqSegGkt39qAFsb9izDwmIJ5aMjSFpzc2aoWOYUexZN4&_nc_zt=23&_nc_ht=scontent.fmnl25-3.fna&_nc_gid=cyqqIGXAdb68ITPr9n9__A&_nc_ss=7a32e&oh=00_AfzXNeYV__FddIqMes5sTO03iMzN7l9NTcVQx77KVf8iAw&oe=69C5E258">
+      <h3>SWUnog Olympics 2026</h3>
+      <p>The 2026 SWUnog Olympics has concluded, but the memories of fun, excitement, and sportsmanship remain.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SPORTS SECTION -->
+<div class="section sports-section">
+  <h2>Join a Sports Team</h2>
+  <div class="card-container">
+    <div class="sports-card">
+      <img src="https://www.eurobasket.com/TeamPhoto/2019-2020swcolks.jpg" alt="Basketball">
+      <h3>Basketball Team</h3>
+      <p>Train and compete in school basketball tournaments.</p>
+      <button onclick="window.location.href='basketball.html'">Join Now</button>
+    </div>
+    <div class="sports-card">
+      <img src="https://scontent.fceb9-1.fna.fbcdn.net/v/t1.15752-9/649337136_1277197964536635_5041242615052882149_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEcvJXpTzD8A2P7RAgcjdXrfsGprccxPHp-wamtxzE8eszctrgUV8kmWgfNkTUy5J6SYU6cZXq_1UEvIIBj_Ctu&_nc_ohc=c7Q9EfnetWAQ7kNvwGLJIio&_nc_oc=Adp9QBIU6noj7fXGlBFMWpqZloOOeLuhz7lx5fs3ceKdCfDwA5DmWYJC5QsnUo1d-3o&_nc_zt=23&_nc_ht=scontent.fceb9-1.fna&_nc_ss=7a32e&oh=03_Q7cD4wEaN1oq9U0YaQSlaifYOtRmKXEVYF_rZdq94EdmfCvohg&oe=69E70A47" alt="Volleyball">
+      <h3>Volleyball Team</h3>
+      <p>Showcase your skills and teamwork on the court.</p>
+      <button onclick="window.location.href='volleyball.html'">Join Now</button>
+    </div>
+    <div class="sports-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw_Og59LBP43fDm-g37Lu816N2TG9AK6zJDg&s" alt="Badminton">
+      <h3>Badminton Team</h3>
+      <p>Participate in matches and school leagues while staying active.</p>
+      <button onclick="window.location.href='badminton.html'">Join Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+    <!-- HEADINGS -->
+    <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Sports Registration and Schedules</h3>
+      <a href="basketball.html">Basketball</a>
+      <a href="volleyball.html">Volleyball</a>
+      <a href="badminton.html">Badminton</a>
+      <a href="calendar.html">Event calendar</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>About</h3>
+      <a href="about.html">Our School</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Privacy Policy</a>
+      <a href="contact.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="footer-social">
+    <!-- Facebook link -->
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30">
+    </a>
+    <!-- Google or Twitter (if needed) -->
+    <a href="#" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30">
+    </a>
+    <!-- Instagram colored icon -->
+    <a href="https://www.instagram.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30">
+    </a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+   Copyright © 2026 Campus Connect • All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>

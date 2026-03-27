@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Campus Connect - Calendar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+/* NAVBAR - keep your original header style */
+nav {
+  background: linear-gradient(90deg, #1e3a5f, #2563eb);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+nav .logo { display: flex; align-items: center; }
+nav .logo img { height: 50px; margin-right: 15px; }
+nav .logo span { color: white; font-weight: bold; font-size: 20px; }
+nav .nav-links a { color: white; margin-left: 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav .nav-links a:hover { color: #ffd700; }
+
+/* HERO SECTION (below navbar, like home page) */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/650396461_1407754344437742_5221278470616311683_n.png?stp=dst-png_s2048x2048&_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeH_HbILsh7GVoYBU5wCsTewjrcp4noyFy6OtyniejIXLk3WRXoXmhCM6NWYNDxI319e7cJVUTD2GX12Fj0VhD3-&_nc_ohc=W6EBddi0YmMQ7kNvwFzlV4Y&_nc_oc=AdqHUVtDv-OY8S2iMmYspaRk6kSwYjmUricNCKNhS-i7eMhH_vpKzhC0dglvc_DrDrI&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&_nc_ss=7a32e&oh=03_Q7cD4wFUY5CrMbgiD7T1BVYrMpSNIrZpSorIlSEhc-nb0UXyGA&oe=69E8A782') center/cover no-repeat;
+  color: black;
+  text-align: left;
+  padding: 120px 50px;
+}
+
+.hero h1 { font-size: 50px; margin: 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); }
+.hero p { font-size: 20px; margin: 10px 0 20px 0; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
+.hero button { background-color: #1e90ff; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: 0.3s; }
+.hero button:hover { background-color: #187bcd; transform: translateY(-3px); }
+
+/* CALENDAR STYLES */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.calendar-header h2 { margin: 0; color: #1e3a5f; }
+.calendar-header button {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.calendar-header button:hover { background: #187bcd; }
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #1e3a5f;
+  color: white;
+  padding: 10px 0;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid #ddd;
+}
+.days div {
+  padding: 20px 10px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  position: relative;
+}
+.days div:nth-child(7n) { border-right: none; }
+.days div span.date-number { display: block; font-weight: bold; margin-bottom: 5px; }
+
+.event {
+  border-radius: 8px;
+  padding: 4px 6px;
+  margin-top: 5px;
+  font-size: 12px;
+  color: black;
+}
+.event.entrep { background: #ffeaa7; }       /* Yellow */
+.event.tryout { background: #fdcb6e; }      /* Orange */
+.event.game { background: #55efc4; }        /* Green */
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.legend div { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.legend div span { width: 15px; height: 15px; display: inline-block; border-radius: 4px; }
+
+/* FLOATING SHAPES */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: float 10s ease-in-out infinite alternate;
+}
+.shape.circle { width:50px; height:50px; background:#1e90ff; top:10%; left:15%; animation-duration:12s;}
+.shape.triangle { width:0; height:0; border-left:25px solid transparent; border-right:25px solid transparent; border-bottom:50px solid #2563eb; top:30%; right:10%; animation-duration:15s;}
+.shape.square { width:40px; height:40px; background:#187bcd; top:60%; left:25%; animation-duration:10s;}
+.shape.star { width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:30px solid #1e3a5f; transform: rotate(35deg); top:50%; right:40%; animation-duration:18s;}
+@keyframes float { 0%{transform:translateY(0px) rotate(0deg);} 50%{transform:translateY(-20px) rotate(15deg);} 100%{transform:translateY(0px) rotate(0deg);} }
+
+/* FOOTER */
+footer {
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a { color: #60a5fa; text-decoration: none; margin: 0 10px; }
+.footer-social { margin-top: 10px; }
+.footer-social a img { width: 32px; height: 32px; margin: 0 5px; vertical-align: middle; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  color: #a3cfff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover { color: #ff4081; }
+
+.footer-social { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.footer-social a img { width: 32px; height: 32px; transition: transform 0.3s; }
+.footer-social a img:hover { transform: scale(1.1); }
+
+.footer-bottom { text-align: center; margin-top: 15px; color: #cbd5e1; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/656017785_26754887617428436_6919298552718149506_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeERBFuANXbqIb5pr2RJ7ZQTBiOT4qjHiioGI5PiqMeKKlLDNSObmhYLcQnAWAVxDnOvbHHB8e453EjgokTn0tXF&_nc_ohc=GxsSuDEbQOYQ7kNvwFIYOy5&_nc_oc=AdrV7WdYmguhejowrBFIgtOsZuI1LbWzjU_eRAwJbLshDis5lF0MaypyPla2xhUy_vw&_nc_zt=23&_nc_ht=scontent.fmnl25-1.fna&_nc_ss=7a30f&oh=03_Q7cD4wHsoqDDGRk4IhwlwZcCT79at3T1gXqNK7Jg0vFk9q6HiQ&oe=69E46595" alt="Campus Connect Logo">
+    <span>Campus Connect</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION BELOW NAVBAR -->
+<div class="hero">
+  <h1>Event Calendar</h1>
+  <p>You can see here the schedules of the events, tryouts and games</p>
+</div>
+
+
+<div class="container">
+  <div class="calendar-header">
+    <button id="prevMonth">&lt; Prev</button>
+    <h2 id="monthYear">March 2026</h2>
+    <button id="nextMonth">Next &gt;</button>
+  </div>
+
+  <div class="weekdays">
+    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+  </div>
+  <div class="days" id="calendarDays"></div>
+
+  <div class="legend">
+    <div><span style="background:#ffeaa7"></span>Entrep Day</div>
+    <div><span style="background:#fdcb6e"></span>Tryouts</div>
+    <div><span style="background:#55efc4"></span>Games</div>
+  </div>
+</div>
+
+<!-- FLOATING SHAPES -->
+<div class="shape circle"></div>
+<div class="shape triangle"></div>
+<div class="shape square"></div>
+<div class="shape star"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+    <!-- HEADINGS -->
+    <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Sports Registration and Schedules</h3>
+      <a href="basketball.html">Basketball</a>
+      <a href="volleyball.html">Volleyball</a>
+      <a href="badminton.html">Badminton</a>
+      <a href="calendar.html">Event calendar</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>About</h3>
+      <a href="about.html">Our School</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Privacy Policy</a>
+      <a href="contact.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="footer-social">
+    <!-- Facebook link -->
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30">
+    </a>
+    <!-- Google or Twitter (if needed) -->
+    <a href="#" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30">
+    </a>
+    <!-- Instagram colored icon -->
+    <a href="https://www.instagram.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30">
+    </a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+   Copyright © 2026 Campus Connect • All Rights Reserved
+  </div>
+</footer>
+
+<script>
+const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let currentMonth = 2; // March
+let currentYear = 2026;
+
+const events = {
+  "2026-03-15": { title: "Entrep Day", type:"entrep", time:"09:00 AM - 03:00 PM" },
+  "2026-03-20": { title: "Basketball Tryouts", type:"tryout", time:"02:00 PM - 04:00 PM" },
+  "2026-03-22": { title: "Volleyball Tryouts", type:"tryout", time:"01:00 PM - 03:00 PM" },
+  "2026-03-25": { title: "Badminton Tryouts", type:"tryout", time:"03:00 PM - 05:00 PM" },
+  "2026-04-05": { title: "Basketball Game", type:"game", time:"04:00 PM - 06:00 PM" },
+  "2026-04-10": { title: "Volleyball Game", type:"game", time:"03:00 PM - 05:00 PM" },
+  "2026-04-12": { title: "Badminton Game", type:"game", time:"02:00 PM - 04:00 PM" }
+};
+
+const monthYearEl = document.getElementById("monthYear");
+const calendarDaysEl = document.getElementById("calendarDays");
+
+function renderCalendar(month, year){
+  calendarDaysEl.innerHTML = "";
+  monthYearEl.textContent = `${monthNames[month]} ${year}`;
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+
+  for(let i=0;i<firstDay;i++){
+    const emptyDiv = document.createElement("div");
+    calendarDaysEl.appendChild(emptyDiv);
+  }
+
+  for(let day=1; day<=daysInMonth; day++){
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const dayDiv = document.createElement("div");
+    dayDiv.innerHTML = `<span class="date-number">${day}</span>`;
+    if(events[dateStr]){
+      const evDiv = document.createElement("div");
+      evDiv.className = `event ${events[dateStr].type}`;
+      evDiv.textContent = `${events[dateStr].title} (${events[dateStr].time})`;
+      dayDiv.appendChild(evDiv);
+    }
+    calendarDaysEl.appendChild(dayDiv);
+  }
+}
+
+document.getElementById("prevMonth").addEventListener("click",()=>{
+  currentMonth--;
+  if(currentMonth<0){currentMonth=11; currentYear--;}
+  renderCalendar(currentMonth,currentYear);
+});
+document.getElementById("nextMonth").addEventListener("click",()=>{
+  currentMonth++;
+  if(currentMonth>11){currentMonth=0; currentYear++;}
+  renderCalendar(currentMonth,currentYear);
+});
+
+renderCalendar(currentMonth,currentYear);
+</script>
+
+</body>
+</html>

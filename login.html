@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campus Connect - Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      width: 350px;
+      text-align: center;
+    }
+    .login-container h2 {
+      color: #1e3a5f;
+      margin-bottom: 25px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button.login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button.login-btn:hover {
+      background-color: #187bcd;
+    }
+    .social-login {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .social-login a {
+      display: inline-block;
+      width: 45%;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .social-login a.facebook {
+      background-color: #4267B2;
+    }
+    .social-login a.google {
+      background-color: #DB4437;
+    }
+    .signup-link {
+      margin-top: 15px;
+    }
+    .signup-link a {
+      text-decoration: none;
+      color: #1e90ff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Log In</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button class="login-btn" onclick="login()">Log In</button>
+    
+    <div class="social-login">
+      <a href="https://www.facebook.com/login" target="_blank" class="facebook">Facebook</a>
+      <a href="https://accounts.google.com/signin" target="_blank" class="google">Google</a>
+    </div>
+    
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      // You can add validation here if needed
+      // For now, just redirect to index.html
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

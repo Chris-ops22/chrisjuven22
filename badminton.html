@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Badminton Team - Campus Connect</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; }
+
+/* NAVBAR */
+nav {
+  background: linear-gradient(90deg, #1e3a5f, #2563eb);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav .logo { display: flex; align-items: center; }
+nav .logo img { height: 50px; margin-right: 15px; }
+nav .nav-links a { color: white; margin-left: 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav .nav-links a:hover { color: #ffd700; }
+
+/* HEADER */
+.header { text-align:center; padding:60px 20px 20px; }
+.header h1 { color:#1e3a5f; font-size:36px; margin-bottom:10px; }
+.header p { font-size:18px; color:#333; }
+
+/* FORM CONTAINER */
+.form-container {
+  background:white;
+  max-width:500px;
+  margin:auto;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.form-container label { display:block; margin-bottom:8px; font-weight:bold; color:#1e3a5f; }
+.form-container input, .form-container select { width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc; font-size:16px; transition:0.3s; }
+.form-container input:focus, .form-container select:focus { border-color:#1e90ff; outline:none; }
+
+.form-container button {
+  background:#1e90ff;
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  width:100%;
+  font-size:18px;
+}
+
+.form-container button:hover { background:#187bcd; transform:translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer-social {
+  margin-top: 10px;
+}
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footer-column a {
+  display: block; /* makes each link on its own line */
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;
+}
+.footer {
+  background: #1e3a5f;  /* dark blue footer */
+  color: white;          /* main text color */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  text-align: left;      /* aligns columns nicely */
+}
+
+.footer-column h3 {
+  color: white;          /* footer headings */
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  color: #a3cfff;        /* link color on dark background */
+  text-decoration: none;
+  display: block;        /* each link on a new line */
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ff4081;        /* hover color */
+}
+/* Center the social icons */
+.footer-social {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  gap: 15px;               /* spacing between icons */
+  margin-top: 30px;        /* spacing from columns */
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1); /* small zoom effect on hover */
+}
+
+/* Center the copyright text */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  color: #cbd5e1;   /* light gray for contrast */
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/656017785_26754887617428436_6919298552718149506_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeERBFuANXbqIb5pr2RJ7ZQTBiOT4qjHiioGI5PiqMeKKlLDNSObmhYLcQnAWAVxDnOvbHHB8e453EjgokTn0tXF&_nc_ohc=GxsSuDEbQOYQ7kNvwFIYOy5&_nc_oc=AdrV7WdYmguhejowrBFIgtOsZuI1LbWzjU_eRAwJbLshDis5lF0MaypyPla2xhUy_vw&_nc_zt=23&_nc_ht=scontent.fmnl25-1.fna&_nc_ss=7a30f&oh=03_Q7cD4wHsoqDDGRk4IhwlwZcCT79at3T1gXqNK7Jg0vFk9q6HiQ&oe=69E46595" alt="Campus Connect Logo">
+    <span style="color:white; font-weight:bold; font-size:20px;">Campus Connect</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Badminton Team Registration</h1>
+  <p>Fill out the form below to join the Badminton Team</p>
+</div>
+
+<!-- FORM -->
+<div class="form-container">
+  <form onsubmit="return registerForm()">
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" placeholder="Enter your age" required min="10" max="100">
+
+    <label for="strand">Strand</label>
+    <select id="strand" name="strand" required>
+      <option value="">Select your strand</option>
+      <option value="STEM AEIT">STEM AEIT</option>
+      <option value="STEM HEALTH">STEM HEALTH</option>
+      <option value="ABM">ABM</option>
+    </select>
+
+    <label for="motivation">Why do you want to join?</label>
+    <input type="text" id="motivation" name="motivation" placeholder="Optional">
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+    <!-- HEADINGS -->
+    <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Sports Registration and Schedules</h3>
+      <a href="basketball.html">Basketball</a>
+      <a href="volleyball.html">Volleyball</a>
+      <a href="badminton.html">Badminton</a>
+      <a href="calendar.html">Event calendar</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>About</h3>
+      <a href="about.html">Our School</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Privacy Policy</a>
+      <a href="contact.html">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="footer-social">
+    <!-- Facebook link -->
+    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="30">
+    </a>
+    <!-- Google or Twitter (if needed) -->
+    <a href="#" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30">
+    </a>
+    <!-- Instagram colored icon -->
+    <a href="https://www.instagram.com/YOUR_PAGE" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30">
+    </a>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+   Copyright © 2026 Campus Connect • All Rights Reserved
+  </div>
+</footer>
+
+
+<script>
+function registerForm() {
+  const name = document.getElementById('fullname').value;
+  const age = document.getElementById('age').value;
+  const strand = document.getElementById('strand').value;
+  alert(`Thank you ${name} for registering for the Badminton Team!\nAge: ${age}\nStrand: ${strand}`);
+  return false;
+}
+</script>
+
+</body>
+</html>
